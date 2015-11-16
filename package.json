@@ -1,0 +1,35 @@
+{
+  "name": "3dstore",
+  "version": "1.0.0",
+  "description": "store builted with angular js",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/williamsnieves/3dstore.git"
+  },
+  "keywords": [
+    "angular",
+    "typescript",
+    "node"
+  ],
+  "author": "willians nieves",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/williamsnieves/3dstore/issues"
+  },
+  "homepage": "https://github.com/williamsnieves/3dstore",
+  "dependencies": {
+    "angular": "^1.4.7"
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "gulp": "^3.9.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.15",
+    "karma-firefox-launcher": "^0.1.7",
+    "karma-jasmine": "^0.3.6"
+  }
+}
