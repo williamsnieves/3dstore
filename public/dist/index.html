@@ -3,17 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <title>3d Soccer Store</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.11.4/angular-material.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.0/angular-material.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
-    <test-directive></test-directive>
+<body layout="column" ng-controller="appCtrl">
+    <md-toolbar layout="row">
+        <md-button ng-click="openLeftMenu()" hide-gt-sm class="md-icon-button md-primary" aria-label="Settings">
+            <ng-md-icon icon="menu" style="fill: white"></ng-md-icon>
+        </md-button>
+        <h1 class="md-toolbar-tools" layout-align-gt-sm="center">3D store</h1>
+    </md-toolbar>
+    <div layout="row" flex>
+
+
+        <md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
+            <md-toolbar class="md-theme-indigo">
+                <h1 class="md-toolbar-tools">Categories</h1>
+            </md-toolbar>
+            <md-list ng-controller="ListCtrl" ng-cloak>
+                <md-list-item ng-repeat="topping in toppings">
+                    <p> {{ topping.name }} </p>
+                </md-list-item>
+                <md-divider></md-divider>
+                <md-list-item ng-repeat="message in messages">
+                    <md-checkbox ng-model="message.selected"></md-checkbox>
+                    <p>{{message.title}}</p>
+                </md-list-item>
+            </md-list>
+        </md-sidenav>
+        <div layout="column" flex id="content">
+            <md-content layout="column" flex class="md-padding">
+                <md-button class="md-icon-button md-primary" aria-label="Settings">
+                    <ng-md-icon icon="menu" style="fill: lightgreen"></ng-md-icon>
+                </md-button>
+            </md-content>
+        </div>
+    </div>
     <script src="js/bundle.js"></script>
 
     <!-- Angular Material Dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-animate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-aria.min.js"></script>
     <!-- Angular Material Javascript now available via Google CDN; version 0.11.2 used here -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.11.4/angular-material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.0/angular-material.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.6.0/angular-material-icons.min.js"></script>
+
 </body>
 </html>
