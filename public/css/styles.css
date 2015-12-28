@@ -7,3 +7,6 @@ body {
 .md-toolbar.md-default-theme:not(.md-menu-toolbar), .md-toolbar:not(.md-menu-toolbar) {
   background-color: #cacaca !important;
   color: rgba(255, 255, 255, 0.87); }
+
+.grid-card-layout {
+  justify-content: space-around; }

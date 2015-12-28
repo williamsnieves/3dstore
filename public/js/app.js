@@ -22,6 +22,9 @@ angular.module('exampleApp', ['ngMaterial', 'ngMdIcons'])
             { id: 2, title: "Message B", selected: true },
             { id: 3, title: "Message C", selected: true },
         ];
+        $scope.clickOptions = function () {
+            alert("test");
+        };
     }])
     .directive('testDirective', function () {
     return {
