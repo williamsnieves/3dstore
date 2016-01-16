@@ -2,11 +2,28 @@
  * Created by willians on 06/12/15.
  */
 
-/// <reference path="angular/angular.d.ts" />
-import angular = require("angular");
+/// <reference path="_all.ts" />
 
-angular.module('exampleApp', ['ngMaterial', 'ngMdIcons'])
-    .controller("appCtrl", ['$scope', '$mdSidenav', function($scope, $mdSidenav){
+import AppCtrl = require('./controllers/AppCtrl');
+import ListCtrl = require('./controllers/ListCtrl');
+import CardsCtrl = require('./controllers/CardsCtrl');
+import FavoriteCtrl = require('./controllers/FavoriteCtrl');
+import WishCtrl = require('./controllers/WishCtrl');
+
+
+module soccerStore{
+    "use strict";
+
+    angular.module("soccerStore", ['ngMaterial', 'ngMdIcons'])
+            .controller("AppCtrl", ['$scope', '$mdToast',($scope, $mdToast) => new AppCtrl.Application.Controllers.AppCtrl($scope, $mdToast)])
+            .controller("ListCtrl", ['$scope', ($scope)=> new ListCtrl.Application.Controllers.ListCtrl($scope)])
+            .controller("FavoriteCtrl", ['$scope', ($scope)=> new FavoriteCtrl.Application.Controllers.FavoriteCtrl($scope)])
+            .controller("WishCtrl", ['$scope', ($scope)=> new WishCtrl.Application.Controllers.WishCtrl($scope)])
+            .controller("CardsCtrl", ['$scope', ($scope)=> new CardsCtrl.Application.Controllers.CardsCtrl($scope)]);
+}
+
+/*angular.module('soccerStore', ['ngMaterial', 'ngMdIcons'])
+    .controller("AppCtrl", ['$scope', '$mdSidenav', function($scope, $mdSidenav){
         $scope.openLeftMenu = function() {
             console.log("abrir");
             $mdSidenav('left').toggle();
@@ -37,4 +54,4 @@ angular.module('exampleApp', ['ngMaterial', 'ngMdIcons'])
         }
     })
 var test1 = "hola willow pu";
-console.log(test1);
+console.log(test1);*/

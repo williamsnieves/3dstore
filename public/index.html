@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="exampleApp">
+<html lang="en" ng-app="soccerStore">
 <head>
     <meta charset="UTF-8">
     <title>3d Soccer Store</title>
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body layout="column" ng-controller="appCtrl">
+<body layout="column" ng-controller="AppCtrl">
     <md-toolbar layout="row">
         <md-button ng-click="openLeftMenu()" hide-gt-sm class="md-icon-button md-primary" aria-label="Settings">
             <ng-md-icon icon="menu" style="fill: white"></ng-md-icon>
@@ -31,7 +31,7 @@
             <md-content layout="column" flex class="md-padding">
                 <md-tabs md-dynamic-height md-border-bottom>
                     <md-tab label="products">
-                        <md-content class="md-padding grid-card-layout" layout="row" layout-wrap layout-align="center start" layout-xs="column">
+                        <md-content ng-controller="CardsCtrl" class="md-padding grid-card-layout" layout="row" layout-wrap layout-align="center start" layout-xs="column">
 
                                 <md-card>
                                     <md-card-title>
@@ -42,7 +42,9 @@
                                     </md-card-title>
                                     <md-card-content layout="row" layout-align="space-between">
                                         <div class="md-media-xl card-media">
-                                            canvas
+                                            <div id="containerBall" class="containerBall">
+
+                                            </div>
                                         </div>
                                         <md-card-actions layout="column">
                                             <md-button class="md-icon-button" aria-label="Favorite">
@@ -66,7 +68,11 @@
                                     </md-card-title-text>
                                 </md-card-title>
                                 <md-card-content layout="row" layout-align="space-between">
-                                    <div class="md-media-xl card-media"></div>
+                                    <div class="md-media-xl card-media">
+                                        <div id="containerPlane" class="containerBall">
+
+                                        </div>
+                                    </div>
                                     <md-card-actions layout="column">
                                         <md-button class="md-icon-button" aria-label="Favorite">
                                             <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
@@ -131,16 +137,16 @@
                         </md-content>
                     </md-tab>
                     <md-tab label="wishlist">
-                        <md-content class="md-padding">
-                            <h1 class="md-display-2">Tab Two</h1>
+                        <md-content ng-controller="WishCtrl" class="md-padding" >
+                            <h1 class="md-display-2">{{wishTitle}}</h1>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
                             <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
                             <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
                         </md-content>
                     </md-tab>
-                    <md-tab label="favorites">
-                        <md-content class="md-padding">
-                            <h1 class="md-display-2">Tab Three</h1>
+                    <md-tab label="favorites" >
+                        <md-content ng-controller="FavoriteCtrl" class="md-padding" >
+                            <h1 class="md-display-2">{{favoriteTitle}}</h1>
                             <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
                         </md-content>
                     </md-tab>
@@ -148,7 +154,8 @@
             </md-content>
         </div>
     </div>
-    <script src="js/bundle.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular.min.js"></script>
 
     <!-- Angular Material Dependencies -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-animate.min.js"></script>
@@ -157,6 +164,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/1.0.0/angular-material.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/angular-material-icons/0.6.0/angular-material-icons.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.js"></script>
+
+    <script src="js/bundle.js"></script>
 
 </body>
 </html>

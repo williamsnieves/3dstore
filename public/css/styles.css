@@ -10,3 +10,8 @@ body {
 
 .grid-card-layout {
   justify-content: space-around; }
+
+.containerBall {
+  border: 1px solid red;
+  width: 19.06em;
+  height: 100%; }
