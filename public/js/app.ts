@@ -7,19 +7,23 @@
 import AppCtrl = require('./controllers/AppCtrl');
 import ListCtrl = require('./controllers/ListCtrl');
 import CardsCtrl = require('./controllers/CardsCtrl');
+import ThreeCtrl = require('./controllers/ThreeCtrl');
 import FavoriteCtrl = require('./controllers/FavoriteCtrl');
+import TabsCtrl = require('./controllers/TabsCtrl');
 import WishCtrl = require('./controllers/WishCtrl');
-
+import ApiService = require('./services/ApiService');
 
 module soccerStore{
     "use strict";
 
     angular.module("soccerStore", ['ngMaterial', 'ngMdIcons'])
+            .service("ApiService", ['$scope', ($scope) => new ApiService.Application.Services.ApiService($scope)])
             .controller("AppCtrl", ['$scope', '$mdToast',($scope, $mdToast) => new AppCtrl.Application.Controllers.AppCtrl($scope, $mdToast)])
-            .controller("ListCtrl", ['$scope', ($scope)=> new ListCtrl.Application.Controllers.ListCtrl($scope)])
-            .controller("FavoriteCtrl", ['$scope', ($scope)=> new FavoriteCtrl.Application.Controllers.FavoriteCtrl($scope)])
-            .controller("WishCtrl", ['$scope', ($scope)=> new WishCtrl.Application.Controllers.WishCtrl($scope)])
-            .controller("CardsCtrl", ['$scope', ($scope)=> new CardsCtrl.Application.Controllers.CardsCtrl($scope)]);
+            .controller("ListCtrl", ['$scope','$rootScope', ($scope, $rootScope)=> new ListCtrl.Application.Controllers.ListCtrl($scope, $rootScope)])
+            .controller("TabsCtrl", ['$scope','$http','$q','$mdToast', ($scope, $http, $q, $mdToast)=> new TabsCtrl.Application.Controllers.TabsCtrl($scope, $http, $q, $mdToast)])
+            .controller("ThreeCtrl", ['$scope', ($scope)=> new ThreeCtrl.Application.Controllers.ThreeCtrl($scope)]);
+
+
 }
 
 /*angular.module('soccerStore', ['ngMaterial', 'ngMdIcons'])

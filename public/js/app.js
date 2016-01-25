@@ -4,18 +4,18 @@
 /// <reference path="_all.ts" />
 var AppCtrl = require('./controllers/AppCtrl');
 var ListCtrl = require('./controllers/ListCtrl');
-var CardsCtrl = require('./controllers/CardsCtrl');
-var FavoriteCtrl = require('./controllers/FavoriteCtrl');
-var WishCtrl = require('./controllers/WishCtrl');
+var ThreeCtrl = require('./controllers/ThreeCtrl');
+var TabsCtrl = require('./controllers/TabsCtrl');
+var ApiService = require('./services/ApiService');
 var soccerStore;
 (function (soccerStore) {
     "use strict";
     angular.module("soccerStore", ['ngMaterial', 'ngMdIcons'])
+        .service("ApiService", ['$scope', function ($scope) { return new ApiService.Application.Services.ApiService($scope); }])
         .controller("AppCtrl", ['$scope', '$mdToast', function ($scope, $mdToast) { return new AppCtrl.Application.Controllers.AppCtrl($scope, $mdToast); }])
-        .controller("ListCtrl", ['$scope', function ($scope) { return new ListCtrl.Application.Controllers.ListCtrl($scope); }])
-        .controller("FavoriteCtrl", ['$scope', function ($scope) { return new FavoriteCtrl.Application.Controllers.FavoriteCtrl($scope); }])
-        .controller("WishCtrl", ['$scope', function ($scope) { return new WishCtrl.Application.Controllers.WishCtrl($scope); }])
-        .controller("CardsCtrl", ['$scope', function ($scope) { return new CardsCtrl.Application.Controllers.CardsCtrl($scope); }]);
+        .controller("ListCtrl", ['$scope', '$rootScope', function ($scope, $rootScope) { return new ListCtrl.Application.Controllers.ListCtrl($scope, $rootScope); }])
+        .controller("TabsCtrl", ['$scope', '$http', '$q', '$mdToast', function ($scope, $http, $q, $mdToast) { return new TabsCtrl.Application.Controllers.TabsCtrl($scope, $http, $q, $mdToast); }])
+        .controller("ThreeCtrl", ['$scope', function ($scope) { return new ThreeCtrl.Application.Controllers.ThreeCtrl($scope); }]);
 })(soccerStore || (soccerStore = {}));
 /*angular.module('soccerStore', ['ngMaterial', 'ngMdIcons'])
     .controller("AppCtrl", ['$scope', '$mdSidenav', function($scope, $mdSidenav){

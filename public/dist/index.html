@@ -22,132 +22,96 @@
                 <h1 class="md-toolbar-tools">Categories</h1>
             </md-toolbar>
             <md-list ng-controller="ListCtrl" ng-cloak>
-                <md-list-item ng-repeat="topping in toppings" ng-click="clickOptions()">
-                    <p> {{ topping.name }} </p>
+                <md-list-item ng-repeat="category in categories" ng-click="filterCategories(category.name)">
+                    <p> {{ category.title }} </p>
                 </md-list-item>
             </md-list>
         </md-sidenav>
         <div layout="column" flex id="content">
-            <md-content layout="column" flex class="md-padding">
-                <md-tabs md-dynamic-height md-border-bottom>
-                    <md-tab label="products">
-                        <md-content ng-controller="CardsCtrl" class="md-padding grid-card-layout" layout="row" layout-wrap layout-align="center start" layout-xs="column">
-
-                                <md-card>
-                                    <md-card-title>
-                                        <md-card-title-text>
-                                            <span class="md-headline">Product Name</span>
-                                            <span class="md-subhead">subtitle</span>
-                                        </md-card-title-text>
-                                    </md-card-title>
-                                    <md-card-content layout="row" layout-align="space-between">
-                                        <div class="md-media-xl card-media">
-                                            <div id="containerBall" class="containerBall">
-
-                                            </div>
-                                        </div>
-                                        <md-card-actions layout="column">
-                                            <md-button class="md-icon-button" aria-label="Favorite">
-                                                <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
-                                            </md-button>
-                                            <md-button class="md-icon-button" aria-label="Settings">
-                                                <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-                                            </md-button>
-                                            <md-button class="md-icon-button" aria-label="Share">
-                                                <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
-                                            </md-button>
-                                        </md-card-actions>
-                                    </md-card-content>
-                                </md-card>
-
-                            <md-card>
+            <md-content ng-controller="TabsCtrl" layout="column" flex class="md-padding">
+                <md-tabs  md-dynamic-height md-border-bottom>
+                    <md-tab ng-click="getFirstTab()" label="products">
+                        <md-content ng-controller="ThreeCtrl" class="md-padding grid-card-layout" layout="row" layout-wrap layout-align="center start" layout-xs="column">
+                            <md-card style="width:21em;">
                                 <md-card-title>
                                     <md-card-title-text>
-                                        <span class="md-headline">Product Name</span>
-                                        <span class="md-subhead">subtitle</span>
+                                        <span class="md-headline">Example balls</span>
+                                    </md-card-title-text>
+                                </md-card-title>
+                                <md-card-content layout="row" layout-align="space-between">
+                                    <div class="md-media-xl card-media">
+                                        <div id="containerBall" class="containerBall">
+                                        </div>
+                                    </div>
+                                </md-card-content>
+                            </md-card>
+                            <md-card style="width:21em;">
+                                <md-card-title>
+                                    <md-card-title-text>
+                                        <span class="md-headline">Example posters</span>
                                     </md-card-title-text>
                                 </md-card-title>
                                 <md-card-content layout="row" layout-align="space-between">
                                     <div class="md-media-xl card-media">
                                         <div id="containerPlane" class="containerBall">
-
                                         </div>
                                     </div>
-                                    <md-card-actions layout="column">
-                                        <md-button class="md-icon-button" aria-label="Favorite">
-                                            <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
-                                        </md-button>
-                                        <md-button class="md-icon-button" aria-label="Settings">
-                                            <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-                                        </md-button>
-                                        <md-button class="md-icon-button" aria-label="Share">
-                                            <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
-                                        </md-button>
-                                    </md-card-actions>
                                 </md-card-content>
                             </md-card>
-
-                            <md-card>
-                                <md-card-title>
-                                    <md-card-title-text>
-                                        <span class="md-headline">Product Name</span>
-                                        <span class="md-subhead">subtitle</span>
-                                    </md-card-title-text>
-                                </md-card-title>
-                                <md-card-content layout="row" layout-align="space-between">
-                                    <div class="md-media-xl card-media"></div>
-                                    <md-card-actions layout="column">
-                                        <md-button class="md-icon-button" aria-label="Favorite">
-                                            <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
-                                        </md-button>
-                                        <md-button class="md-icon-button" aria-label="Settings">
-                                            <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-                                        </md-button>
-                                        <md-button class="md-icon-button" aria-label="Share">
-                                            <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
-                                        </md-button>
-                                    </md-card-actions>
-                                </md-card-content>
-                            </md-card>
-
-                            <md-card>
-                                <md-card-title>
-                                    <md-card-title-text>
-                                        <span class="md-headline">Product Name</span>
-                                        <span class="md-subhead">subtitle</span>
-                                    </md-card-title-text>
-                                </md-card-title>
-                                <md-card-content layout="row" layout-align="space-between">
-                                    <div class="md-media-xl card-media"></div>
-                                    <md-card-actions layout="column">
-                                        <md-button class="md-icon-button" aria-label="Favorite">
-                                            <md-icon md-svg-icon="img/icons/favorite.svg"></md-icon>
-                                        </md-button>
-                                        <md-button class="md-icon-button" aria-label="Settings">
-                                            <md-icon md-svg-icon="img/icons/menu.svg"></md-icon>
-                                        </md-button>
-                                        <md-button class="md-icon-button" aria-label="Share">
-                                            <md-icon md-svg-icon="img/icons/share-arrow.svg"></md-icon>
-                                        </md-button>
-                                    </md-card-actions>
-                                </md-card-content>
-                            </md-card>
+                        </md-content>
+                        <md-content class="md-padding grid-card-layout" layout="row" layout-wrap layout-align="center start" layout-xs="column">
+                                <md-card ng-repeat="product in products | filter:$rootScope.categoryFilter">
+                                    <img ng-src={{product.url}} width="225" height="225" class="md-card-image" alt="Washed Out">
+                                    <md-card-title>
+                                        <md-card-title-text>
+                                            <span class="md-headline">{{product.name}}</span>
+                                            <span class="md-subhead">{{product.description}}</span>
+                                        </md-card-title-text>
+                                    </md-card-title>
 
 
+                                    <md-card-content layout="row" layout-align="space-between">
+                                        <md-card-actions layout="column">
+                                            <md-button data-id={{product._id}} ng-click="saveFavorites(product._id)" class="md-icon-button" aria-label="Favorite">
+                                                <md-icon  md-svg-icon="img/icons/favorite.svg"></md-icon>
+                                            </md-button>
+                                            <md-button data-id={{product._id}} ng-click="saveWishlist(product._id)" class="md-icon-button" aria-label="Wishlist">
+                                                <md-icon md-svg-icon="img/icons/wish.svg"></md-icon>
+                                            </md-button>
+
+                                        </md-card-actions>
+                                    </md-card-content>
+                                </md-card>
                         </md-content>
                     </md-tab>
-                    <md-tab label="wishlist">
-                        <md-content ng-controller="WishCtrl" class="md-padding" >
+                    <md-tab ng-click="getSecondTab()" label="wishlist">
+                        <md-content class="md-padding" >
                             <h1 class="md-display-2">{{wishTitle}}</h1>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla venenatis ante augue. Phasellus volutpat neque ac dui mattis vulputate. Etiam consequat aliquam cursus. In sodales pretium ultrices. Maecenas lectus est, sollicitudin consectetur felis nec, feugiat ultricies mi. Aliquam erat volutpat. Nam placerat, tortor in ultrices porttitor, orci enim rutrum enim, vel tempor sapien arcu a tellus. Vivamus convallis sodales ante varius gravida. Curabitur a purus vel augue ultrices ultricies id a nisl. Nullam malesuada consequat diam, a facilisis tortor volutpat et. Sed urna dolor, aliquet vitae posuere vulputate, euismod ac lorem. Sed felis risus, pulvinar at interdum quis, vehicula sed odio. Phasellus in enim venenatis, iaculis tortor eu, bibendum ante. Donec ac tellus dictum neque volutpat blandit. Praesent efficitur faucibus risus, ac auctor purus porttitor vitae. Phasellus ornare dui nec orci posuere, nec luctus mauris semper.</p>
-                            <p>Morbi viverra, ante vel aliquet tincidunt, leo dolor pharetra quam, at semper massa orci nec magna. Donec posuere nec sapien sed laoreet. Etiam cursus nunc in condimentum facilisis. Etiam in tempor tortor. Vivamus faucibus egestas enim, at convallis diam pulvinar vel. Cras ac orci eget nisi maximus cursus. Nunc urna libero, viverra sit amet nisl at, hendrerit tempor turpis. Maecenas facilisis convallis mi vel tempor. Nullam vitae nunc leo. Cras sed nisl consectetur, rhoncus sapien sit amet, tempus sapien.</p>
-                            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+
+                            <md-card ng-repeat="wishlist in wishlists">
+                                <img ng-src={{wishlist.url}} width="225" height="225" class="md-card-image" alt="Washed Out">
+                                <md-card-title>
+                                    <md-card-title-text>
+                                        <span class="md-headline">{{wishlist.product.name}}</span>
+                                        <span class="md-subhead">{{wishlist.product.description}}</span>
+                                    </md-card-title-text>
+                                </md-card-title>
+                            </md-card>
+
                         </md-content>
                     </md-tab>
-                    <md-tab label="favorites" >
-                        <md-content ng-controller="FavoriteCtrl" class="md-padding" >
+                    <md-tab ng-click="getThirdTab()" label="favorites" >
+                        <md-content class="md-padding" >
                             <h1 class="md-display-2">{{favoriteTitle}}</h1>
-                            <p>Integer turpis erat, porttitor vitae mi faucibus, laoreet interdum tellus. Curabitur posuere molestie dictum. Morbi eget congue risus, quis rhoncus quam. Suspendisse vitae hendrerit erat, at posuere mi. Cras eu fermentum nunc. Sed id ante eu orci commodo volutpat non ac est. Praesent ligula diam, congue eu enim scelerisque, finibus commodo lectus.</p>
+                            <md-card ng-repeat="favorite in favorites">
+                                <img ng-src={{favorite.url}} width="225" height="225" class="md-card-image" alt="Washed Out">
+                                <md-card-title>
+                                    <md-card-title-text>
+                                        <span class="md-headline">{{favorite.name}}</span>
+                                        <span class="md-subhead">{{favorite.description}}</span>
+                                    </md-card-title-text>
+                                </md-card-title>
+                            </md-card>
                         </md-content>
                     </md-tab>
                 </md-tabs>

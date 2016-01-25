@@ -6,16 +6,21 @@ var Application;
     var Controllers;
     (function (Controllers) {
         var ListCtrl = (function () {
-            function ListCtrl($scope) {
+            function ListCtrl($scope, $rootScope) {
                 this.$scope = $scope;
-                $scope.toppings = [
-                    { name: 'Pepperoni', wanted: true },
-                    { name: 'Sausage', wanted: false },
-                    { name: 'Black Olives', wanted: true },
-                    { name: 'Green Peppers', wanted: false }
+                this.$rootScope = $rootScope;
+                this._rootScope = $rootScope;
+                $rootScope.categories = [
+                    { title: 'Balls', name: 'balls' },
+                    { title: 'Poster', name: 'poster' }
                 ];
+                $rootScope.filterCategories = this.filterCategories.bind(this);
             }
-            ListCtrl.$inject = ['$scope'];
+            ListCtrl.prototype.filterCategories = function (category) {
+                console.log(category);
+                this._rootScope.categoryFilter = category;
+            };
+            ListCtrl.$inject = ['$scope', '$rootScope'];
             return ListCtrl;
         })();
         Controllers.ListCtrl = ListCtrl;

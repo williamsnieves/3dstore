@@ -37,6 +37,8 @@ gulp.task('styles', function(){
 });
 
 
-gulp.task('default', ['browserify', 'styles', 'copy'], function(){
-    return gulp.watch('public/**/*.*', ['browserify', 'styles', 'copy'])
-})
+//gulp.task('default', ['browserify', 'styles', 'copy'], function(){
+    //return gulp.watch('public/**/*.*', ['browserify', 'styles', 'copy'])
+//})
+
+gulp.task('default', ['browserify', 'styles', 'copy'])
