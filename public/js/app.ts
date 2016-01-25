@@ -19,7 +19,7 @@ module soccerStore{
     angular.module("soccerStore", ['ngMaterial', 'ngMdIcons'])
             .service("ApiService", ['$scope', ($scope) => new ApiService.Application.Services.ApiService($scope)])
             .controller("AppCtrl", ['$scope', '$mdToast',($scope, $mdToast) => new AppCtrl.Application.Controllers.AppCtrl($scope, $mdToast)])
-            .controller("ListCtrl", ['$scope','$rootScope', ($scope, $rootScope)=> new ListCtrl.Application.Controllers.ListCtrl($scope, $rootScope)])
+            .controller("ListCtrl", ['$scope','$rootScope','$window', ($scope, $rootScope, $window)=> new ListCtrl.Application.Controllers.ListCtrl($scope, $rootScope,$window)])
             .controller("TabsCtrl", ['$scope','$http','$q','$mdToast', ($scope, $http, $q, $mdToast)=> new TabsCtrl.Application.Controllers.TabsCtrl($scope, $http, $q, $mdToast)])
             .controller("ThreeCtrl", ['$scope', ($scope)=> new ThreeCtrl.Application.Controllers.ThreeCtrl($scope)]);
 
