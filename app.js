@@ -5,7 +5,7 @@ var express = require('express'),
 
 //mongoose.connect("mongodb://localhost/store");
 
-mongoose.connect("mongodb://heroku_v7634j2d:heroku_v7634j2d@ds051625.mongolab.com:51625/heroku_v7634j2d");
+mongoose.connect("mongodb://root:1234@ds051625.mongolab.com:51625/heroku_v7634j2d");
 
 var db = mongoose.connection;
 
