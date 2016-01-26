@@ -16,6 +16,9 @@ var Application;
                     { title: 'Balls', name: 'balls' },
                     { title: 'Poster', name: 'poster' }
                 ];
+                if ($window.localStorage.getItem("category")) {
+                    $window.localStorage.removeItem("category");
+                }
                 $rootScope.filterCategories = this.filterCategories.bind(this);
             }
             ListCtrl.prototype.filterCategories = function (category) {

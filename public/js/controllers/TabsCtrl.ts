@@ -21,7 +21,9 @@ export module Application.Controllers{
 
             $scope.saveWishlist = this.saveWishlist.bind(this);
 
-            $scope.category = $window.localStorage.getItem("category");
+            if($window.localStorage.getItem("category")){
+                $scope.category = $window.localStorage.getItem("category");
+            }
 
             this._service.getProducts().then(function(products){
                 $scope.products = products.products;

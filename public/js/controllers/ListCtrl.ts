@@ -15,6 +15,10 @@ export module Application.Controllers{
                 {title: 'Poster', name: 'poster'}
             ];
 
+            if($window.localStorage.getItem("category")){
+                $window.localStorage.removeItem("category");
+            }
+
             $rootScope.filterCategories = this.filterCategories.bind(this);
         }
 
@@ -22,6 +26,8 @@ export module Application.Controllers{
             console.log(category);
 
             this._window.localStorage.setItem("category", category);
+
+
             this._rootScope.categoryFilter = category;
         }
     }

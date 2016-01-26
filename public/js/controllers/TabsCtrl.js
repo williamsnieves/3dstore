@@ -22,7 +22,9 @@ var Application;
                 $scope.getThirdTab = this.thirdTab.bind(this);
                 $scope.saveFavorites = this.saveFavorites.bind(this);
                 $scope.saveWishlist = this.saveWishlist.bind(this);
-                $scope.category = $window.localStorage.getItem("category");
+                if ($window.localStorage.getItem("category")) {
+                    $scope.category = $window.localStorage.getItem("category");
+                }
                 this._service.getProducts().then(function (products) {
                     $scope.products = products.products;
                     console.log($scope);
