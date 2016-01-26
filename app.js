@@ -3,7 +3,9 @@ var express = require('express'),
     mongoose = require('mongoose'),
     app = express();
 
-mongoose.connect("mongodb://localhost/store");
+//mongoose.connect("mongodb://localhost/store");
+
+mongoose.connect("mongodb://heroku_v7634j2d:heroku_v7634j2d@ds051625.mongolab.com:51625/heroku_v7634j2d");
 
 var db = mongoose.connection;
 
