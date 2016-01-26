@@ -8,11 +8,12 @@ var Application;
     var Controllers;
     (function (Controllers) {
         var TabsCtrl = (function () {
-            function TabsCtrl($scope, $http, $q, $mdToast) {
+            function TabsCtrl($scope, $http, $q, $mdToast, $window) {
                 this.$scope = $scope;
                 this.$http = $http;
                 this.$q = $q;
                 this.$mdToast = $mdToast;
+                this.$window = $window;
                 this._toast = $mdToast;
                 this._service = new ApiService.Application.Services.ApiService($scope, $http, $q);
                 this._scope = $scope;
@@ -21,6 +22,7 @@ var Application;
                 $scope.getThirdTab = this.thirdTab.bind(this);
                 $scope.saveFavorites = this.saveFavorites.bind(this);
                 $scope.saveWishlist = this.saveWishlist.bind(this);
+                $scope.category = $window.localStorage.getItem("category");
                 this._service.getProducts().then(function (products) {
                     $scope.products = products.products;
                     console.log($scope);
@@ -62,7 +64,7 @@ var Application;
                         .textContent('Added to wishlist'));
                 }.bind(this));
             };
-            TabsCtrl.$inject = ['$scope', 'ApiService', '$http', '$q', '$mdToast'];
+            TabsCtrl.$inject = ['$scope', 'ApiService', '$http', '$q', '$mdToast', '$window'];
             return TabsCtrl;
         })();
         Controllers.TabsCtrl = TabsCtrl;

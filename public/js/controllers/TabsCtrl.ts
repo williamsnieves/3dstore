@@ -8,8 +8,8 @@ export module Application.Controllers{
         private _service;
         private _scope;
         private _toast;
-        public static $inject = ['$scope', 'ApiService', '$http', '$q', '$mdToast'];
-        constructor(private $scope, private $http, private $q, private $mdToast:angular.material.IToastService){
+        public static $inject = ['$scope', 'ApiService', '$http', '$q', '$mdToast', '$window'];
+        constructor(private $scope, private $http, private $q, private $mdToast:angular.material.IToastService, private $window){
             this._toast = $mdToast;
             this._service = new ApiService.Application.Services.ApiService($scope, $http, $q);
             this._scope = $scope;
@@ -20,6 +20,8 @@ export module Application.Controllers{
             $scope.saveFavorites = this.saveFavorites.bind(this);
 
             $scope.saveWishlist = this.saveWishlist.bind(this);
+
+            $scope.category = $window.localStorage.getItem("category");
 
             this._service.getProducts().then(function(products){
                 $scope.products = products.products;

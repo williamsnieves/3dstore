@@ -60,7 +60,7 @@
                             </md-card>
                         </md-content>
                         <md-content class="md-padding grid-card-layout" layout="row" layout-wrap layout-align="center start" layout-xs="column">
-                                <md-card ng-repeat="product in products | filter:$rootScope.categoryFilter">
+                                <md-card ng-repeat="product in products | filter:category">
                                     <img ng-src={{product.url}} width="225" height="225" class="md-card-image" alt="Washed Out">
                                     <md-card-title>
                                         <md-card-title-text>

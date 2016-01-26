@@ -14,7 +14,7 @@ var soccerStore;
         .service("ApiService", ['$scope', function ($scope) { return new ApiService.Application.Services.ApiService($scope); }])
         .controller("AppCtrl", ['$scope', '$mdToast', function ($scope, $mdToast) { return new AppCtrl.Application.Controllers.AppCtrl($scope, $mdToast); }])
         .controller("ListCtrl", ['$scope', '$rootScope', '$window', function ($scope, $rootScope, $window) { return new ListCtrl.Application.Controllers.ListCtrl($scope, $rootScope, $window); }])
-        .controller("TabsCtrl", ['$scope', '$http', '$q', '$mdToast', function ($scope, $http, $q, $mdToast) { return new TabsCtrl.Application.Controllers.TabsCtrl($scope, $http, $q, $mdToast); }])
+        .controller("TabsCtrl", ['$scope', '$http', '$q', '$mdToast', '$window', function ($scope, $http, $q, $mdToast, $window) { return new TabsCtrl.Application.Controllers.TabsCtrl($scope, $http, $q, $mdToast, $window); }])
         .controller("ThreeCtrl", ['$scope', function ($scope) { return new ThreeCtrl.Application.Controllers.ThreeCtrl($scope); }]);
 })(soccerStore || (soccerStore = {}));
 /*angular.module('soccerStore', ['ngMaterial', 'ngMdIcons'])
