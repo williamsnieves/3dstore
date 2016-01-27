@@ -178,7 +178,10 @@ app.post('/api/v1/wishlist/:id', function (req, res) {
             product: {
                 id: product._id,
                 name: product.name,
-                description: product.description
+                description: product.description,
+                favorite: product.favorite,
+                url: product.url,
+                category: product.category
             }
         })
 
