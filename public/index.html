@@ -89,7 +89,7 @@
                             <h1 class="md-display-2">{{wishTitle}}</h1>
 
                             <md-card ng-repeat="wishlist in wishlists">
-                                <img ng-src={{wishlist.url}} width="225" height="225" class="md-card-image" alt="Washed Out">
+                                <img ng-src={{wishlist.product.url}} width="225" height="225" class="md-card-image" alt="Washed Out">
                                 <md-card-title>
                                     <md-card-title-text>
                                         <span class="md-headline">{{wishlist.product.name}}</span>
